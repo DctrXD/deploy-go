@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="titulo">Subir um site em <span class="go-lang">GO</span> lang</h1>
+        <div class="header">
+            <div class="left">
+                <p><span id="nome-arquivo">main.go</span></p>
+            </div>
+            <div class="right">
+                <button id="botao-copiar" onclick="copiarCodigo()">Copiar</button>
+            </div>
+        </div>
+        <div class="codigo">
+            <pre><code>
+package main
+
+import (
+"net/http"
+)
+
+func main() {
+// Define a pasta "struct" como diretório raiz para arquivos estáticos
+fs := http.FileServer(http.Dir("struct"))
+http.Handle("/", fs)
+
+// Inicia o servidor na porta 8080
+http.ListenAndServe(":8080", nil)
+}
+            </code></pre>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
